@@ -1,0 +1,33 @@
+<%- include('layout/header'); -%>
+<%- include('layout/head'); -%>
+    <style>
+        .sidebar ul
+        {
+            margin-top: 23.9%;
+        }
+        .sidebar
+        {
+padding-top: 0;
+        }
+        .music-box {
+  
+    margin-bottom: 6%;
+}
+    </style>
+    <div class="songs">
+    <%songs.forEach(value=>{%>
+        <div class="full-music-box">
+            <div class="music-box">
+                <img src="<%=value.image%>" alt="<%=value.title%>">
+                <h1><%=value.title%></h1>
+                <audio id="themeMusic2" controls  >  
+                    <source id="song-search" src="<%=value.music%>"> type="audio/mp3"> />
+            </audio>
+            </div>
+        </div>
+        <%})%>
+    </div>
+
+
+        <%- include('layout/footer'); -%>
+

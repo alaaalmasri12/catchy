@@ -1,0 +1,76 @@
+<%- include('layout/header'); -%>
+<%- include('layout/head'); -%>
+
+<body>
+
+    <section id="search-result">
+
+    </section>
+    <main class="trending">
+        <section class="trending-sec">
+            <h1>TOP 10 IN JORDAN</h1>
+            <div class="top-chart responsive">
+                <%music.forEach(value=>{%>
+                <div>
+                    <div class="music-box">
+                        <img src="<%=value.image%>" alt="<%=value.title%>">
+                        <h1><%=value.title%></h1>
+                        <p><%=value.artist%></p>
+                        <audio id="themeMusic" controls>
+                            <source id="song" src="<%=value.music%>"> type="audio/mp3"> />
+                        </audio>
+                    </div>
+                </div>
+
+                <%})%>
+            </div>
+        </section>
+    </main>
+
+            <section class="genra">
+                <div class="genra-title">
+                    <h1>Choose your faviourite genra</h1>
+                    <div class="catagories">
+                        <% for(var i=6; i< Catagory.length; i++) {%>
+                        <div class="catagory">
+                            <img src="<%=Catagory[i].image%>" alt="<%=Catagory[i].genra%>">
+                            <h2><%=Catagory[i].genra%></h2>
+                        </div>
+                        <%}%>
+</div>
+</div>
+            </div>
+        </section>
+        <section class="events">
+            <div class="tour-image">
+                <img src="images/tour.jpg">
+                <h2>Tour Dates</h2>
+                <%for(var i=0; i<= concert.length;i++) {%>
+                        <div class="event">
+                            <div class="ticket-btn">
+                                <a href="contact">Get Ticket</a>
+                            </div>
+                            <div class="event-name">
+                                <%if(i>4){%>
+                                <%break;%>
+                                <%}%>
+                        <%if(i<=4){%>
+                                <h5><%=concert[i].event%></h5>
+                            </div>
+                            <div class="event-start-date">
+                                <%concert[i].start = new Date();%>
+                                <p><%=concert[i].start.toDateString();%></p>
+                            </div>
+                            <div class="event-location">
+                                <p><%=concert[i].country;%></p>
+                            </div>
+                           
+                        </div>
+                        <%}%>
+                        <%}%>
+                    </div>
+            </section>
+            <div class="all-event-btn">
+                <a href="event">See All Our Dates</a>
+            </div>
+    <%- include('layout/footer'); -%>
